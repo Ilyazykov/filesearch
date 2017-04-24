@@ -2,6 +2,9 @@
 
 int runTests() {
     Node* globalTree = NULL;
+    int valueLeft  = 1;
+    int valueRoot  = 2;
+    int valueRight = 3;
     
     printf("\ntest 1: hand initialization\n");
     {
@@ -27,10 +30,9 @@ int runTests() {
     {
         //arrange
         char key = 'b';
-        int value = 10;
 
         //act
-        globalTree = insert(globalTree, key, &value);
+        globalTree = insert(globalTree, key, &valueRoot);
 
         //assert
         if (globalTree != NULL) {
@@ -45,10 +47,9 @@ int runTests() {
     {
         //arrange
         char key = 'a';
-        int value = 10;
 
         //act
-        globalTree = insert(globalTree, key, &value);
+        globalTree = insert(globalTree, key, &valueLeft);
 
         //assert
         if (globalTree->left != NULL) {
@@ -62,10 +63,9 @@ int runTests() {
     {
         //arrange
         char key = 'c';
-        int value = 10;
 
         //act
-        globalTree = insert(globalTree, key, &value);
+        globalTree = insert(globalTree, key, &valueRight);
 
         //assert
         if (globalTree->right != NULL) {
@@ -73,6 +73,18 @@ int runTests() {
         } else {
             printf("FAIL (right is not initialized)\n");
         }
+    }
+
+    printf("\ntest 5: search key in tree\n");
+    {
+        //arrange
+        char key = 'c';
+
+        //act
+        int* value = searchInTree(globalTree, key);
+
+        //assert
+        ASSERT(valueRight, *value);
     }
 
     printf("\ntest 6: deleting tree\n");
