@@ -20,6 +20,20 @@ Node* insert(Node* root, char key, void* value) {
     return root;
 }
 
+void deleteTree(Node* root) {
+    if (root->left != NULL) {
+        delete(root->left);
+        root->left = NULL;
+    }
+    if (root->right != NULL) {
+        delete(root->right);
+        root->right = NULL;
+    }
+
+    root->parent = NULL;
+    free(root);
+}
+
 Node* getGrandparent(const Node* const node) {
     if ((node != NULL) && (node->parent != NULL)) {
         return node->parent->parent;

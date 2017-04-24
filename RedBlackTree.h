@@ -19,6 +19,7 @@ struct Node {
 typedef struct Node Node;
 
 Node* insert(Node* root, char key, void* value);
+void deleteTree(Node* root);
 
 Node* getGrandparent(const Node* const node);
 Node* getUncle(const Node* const node);

@@ -1,6 +1,8 @@
 #include "Tests.h"
 
 int runTests() {
+    Node* globalTree = NULL;
+    
     printf("\ntest 1: hand initialization\n");
     {
         //arrange
@@ -20,62 +22,71 @@ int runTests() {
         n->key = (char)0;
         free(n);
     }
-
+    
     printf("\ntest 2: insert to root\n");
+    {
+        //arrange
+        char key = 'b';
+        int value = 10;
+
+        //act
+        globalTree = insert(globalTree, key, &value);
+
+        //assert
+        if (globalTree != NULL) {
+            ASSERT(key, globalTree->key);
+        }
+        else {
+            printf("FAIL (root is not initialized)\n");
+        }
+    }
+
+    printf("\ntest 3: insert to left\n");
     {
         //arrange
         char key = 'a';
         int value = 10;
-        Node* root = NULL;
 
         //act
-        root = insert(root, key, &value);
+        globalTree = insert(globalTree, key, &value);
 
         //assert
-        if (root != NULL) {
-            ASSERT(key, root->key);
-        }
-        else {
-            printf("FAIL (root is not initialized)\n");
+        if (globalTree->left != NULL) {
+            ASSERT(key, globalTree->left->key);
+        } else {
+            printf("FAIL (left is not initialized)\n");
         }
     }
 
-    printf("\ntest 3: insert to left and right child\n");
+    printf("\ntest 4: insert to right\n");
     {
         //arrange
+        char key = 'c';
         int value = 10;
-        Node* root = NULL;
 
         //act
-        root = insert(root, 'b', &value);
-        root = insert(root, 'a', &value);
-        root = insert(root, 'c', &value);
+        globalTree = insert(globalTree, key, &value);
 
         //assert
-        if (root != NULL) {
-            ASSERT('b', root->key);
-
-            if (root->left != NULL) {
-                ASSERT('a', root->left->key);
-            } else {
-                printf("FAIL (left is not initialized)\n");
-            }
-
-            if (root->right != NULL) {
-                ASSERT('c', root->right->key);
-            } else {
-                printf("FAIL (right is not initialized)\n");
-            }
-        }
-        else {
-            printf("FAIL (root is not initialized)\n");
+        if (globalTree->right != NULL) {
+            ASSERT(key, globalTree->right->key);
+        } else {
+            printf("FAIL (right is not initialized)\n");
         }
     }
 
-    printf("\ntest 4:\n");
+    printf("\ntest 6: deleting tree\n");
     {
+        //arrange
 
+        //act
+        deleteTree(globalTree);
+        globalTree = NULL;
+
+        //assert
+        ASSERT(NULL, globalTree);
     }
+
     return 0;
 }
 
