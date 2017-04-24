@@ -1,6 +1,8 @@
 #ifndef UNTITLED_PREFIXTREE_H
 #define UNTITLED_PREFIXTREE_H
 
+#include "RedBlackTree.h"
+
 #define MAX_STRING_LENGHT 20
 
 struct PrefixTree {
