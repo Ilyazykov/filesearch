@@ -1,10 +1,21 @@
 #include "RedBlackTree.h"
 
-Node* insert(Node* root, void* value) {
+Node* insert(Node* root, char key, void* value) {
     if (root == NULL) {
         root = (Node*)malloc(sizeof(Node));
+        root->key = key;
+        root->value = value;
+        root->left = NULL;
+        root->right = NULL;
+        root->parent = NULL;
     }
-    //TODO
+    else if (key < root->key) {
+        root->left = insert(root->left, key, &value);
+        root->left->parent = root;
+    } else {
+        root->right = insert(root->right, key, &value);
+        root->right->parent = root;
+    }
 
     return root;
 }

@@ -18,7 +18,7 @@ struct Node {
 };
 typedef struct Node Node;
 
-Node* insert(Node* root, void* value);
+Node* insert(Node* root, char key, void* value);
 
 Node* getGrandparent(const Node* const node);
 Node* getUncle(const Node* const node);
