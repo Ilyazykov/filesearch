@@ -14,6 +14,13 @@
             printf("FAIL\n");           \
         }
 
+#define ASSERT_NOT_EQ(expected, computed)   \
+        if ((expected) != (computed)) {     \
+            printf("OK\n");                 \
+        } else {                            \
+            printf("FAIL\n");               \
+        }
+
 int runTests();
 
 #endif //VKTASK5_TESTS_H

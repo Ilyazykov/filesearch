@@ -247,29 +247,26 @@ int runTests() {
 
     printf("\n\nPrefix tree tests:\n");
     {
+        PrefixTreeNode* prefixTreeRoot = NULL;
+
         printf("\n\ttest 16: first letter in PrefixTree\n\t");
         {
             //arrange
-            PrefixTreeNode* prefixTreeRoot = NULL;
 
             //act
             prefixTreeRoot = addToTree(prefixTreeRoot, "test");
 
             //assert
-            ASSERT('t', prefixTreeRoot->value)
+            ASSERT_NOT_EQ(NULL, searchInTree(prefixTreeRoot->prefixTreeNodes, 't'));
         }
 
         printf("\n\ttest 17:\n\t");
         {
-//            //arrange
-//            PrefixTreeNode* prefixTreeRoot;
-//            PrefixTreeNode* temp;
-//
-//            //act
-//            temp = getNextPrefixTreeNode(prefixTree, 'e');
-//
-//            //assert
-//            ASSERT('e', temp->value)
+            //arrange
+
+            //act
+
+            //assert
         }
 
         printf("\n\ttest 18:\n\t");

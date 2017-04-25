@@ -20,13 +20,32 @@ int readTreeFromFile(PrefixTreeNode* prefixTree, const char* fileName) {
 }
 
 PrefixTreeNode* addToTree(PrefixTreeNode* prefixTree, const char* word) {
+    int i = 0;
+    PrefixTreeNode* iteratorCurr;
+    PrefixTreeNode* iteratorNext;
+
     if (prefixTree == NULL) {
-        prefixTree = (PrefixTreeNode*)malloc(sizeof(PrefixTreeNode));
-        prefixTree->value = word[0];
-        prefixTree->prefixTreeNodes = insert(prefixTree->prefixTreeNodes, word[1], NULL);//TODO
-    } else {
-        //TODO
+        prefixTree = (PrefixTreeNode *)malloc(sizeof(PrefixTreeNode));
+        prefixTree->isWord = FALSE;
+        prefixTree->prefixTreeNodes = NULL;
     }
+    iteratorCurr = prefixTree;
+
+    while (word[i] != '\0') {
+        iteratorNext = (PrefixTreeNode*)(searchInTree(iteratorCurr->prefixTreeNodes, word[i]));
+
+        if (iteratorNext == NULL) {
+            iteratorNext = (PrefixTreeNode *)malloc(sizeof(PrefixTreeNode));
+            iteratorNext->isWord = FALSE;
+            iteratorNext->prefixTreeNodes = NULL;
+
+            iteratorCurr->prefixTreeNodes = insert(prefixTree->prefixTreeNodes, word[i], iteratorNext);
+        }
+        iteratorCurr = iteratorNext;
+
+        ++i;
+    }
+    iteratorCurr->isWord = TRUE;
 
     return prefixTree;
 }
