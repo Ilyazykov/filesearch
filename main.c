@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "PrefixTree.h"
+#include "PrefixTreeNode.h"
 #include "Tests.h"
 
 #define EXIT_WORD "exit"
 
 int main(int argc, char* argv[]) {
     runTests();
-//    PrefixTree prefixTree;
+//    PrefixTreeNode prefixTree;
 //    char* fileName = argv[1];
 //    char word[MAX_STRING_LENGHT];
 //

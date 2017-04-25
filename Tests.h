@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "RedBlackTree.h"
+#include "PrefixTreeNode.h"
 
 #define ASSERT(expected, computed)      \
         if ((expected) == (computed)) { \
