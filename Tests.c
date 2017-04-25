@@ -111,7 +111,7 @@ int runTests() {
         ASSERT(NULL, globalTree);
     }
 
-    printf("\ntest 9: balance red black tree\n");
+    printf("\ntest 9: balance red black tree (abc)\n");
     {
         //arrange
         globalTree = insert(globalTree, 'a', &valueRight);
@@ -122,9 +122,132 @@ int runTests() {
 
         //assert
         ASSERT('b', globalTree->key);
+
+        deleteTree(globalTree);
+        globalTree = NULL;
     }
 
-    deleteTree(globalTree);
+    printf("\ntest 10: balance red black tree (acb)\n");
+    {
+        //arrange
+        globalTree = insert(globalTree, 'a', &valueRight);
+        globalTree = insert(globalTree, 'c', &valueRight);
+        globalTree = insert(globalTree, 'b', &valueRight);
+
+
+        //act
+
+        //assert
+        ASSERT('b', globalTree->key);
+
+        deleteTree(globalTree);
+        globalTree = NULL;
+    }
+
+    printf("\ntest 11: balance red black tree (bac)\n");
+    {
+        //arrange
+        globalTree = insert(globalTree, 'b', &valueRight);
+        globalTree = insert(globalTree, 'a', &valueRight);
+        globalTree = insert(globalTree, 'c', &valueRight);
+
+
+        //act
+
+        //assert
+        ASSERT('b', globalTree->key);
+
+        deleteTree(globalTree);
+        globalTree = NULL;
+    }
+
+    printf("\ntest 11: balance red black tree (bca)\n");
+    {
+        //arrange
+        globalTree = insert(globalTree, 'b', &valueRight);
+        globalTree = insert(globalTree, 'c', &valueRight);
+        globalTree = insert(globalTree, 'a', &valueRight);
+
+
+        //act
+
+        //assert
+        ASSERT('b', globalTree->key);
+
+        deleteTree(globalTree);
+        globalTree = NULL;
+    }
+
+    printf("\ntest 12: balance red black tree (cab)\n");
+    {
+        //arrange
+        globalTree = insert(globalTree, 'c', &valueRight);
+        globalTree = insert(globalTree, 'a', &valueRight);
+        globalTree = insert(globalTree, 'b', &valueRight);
+
+
+        //act
+
+        //assert
+        ASSERT('b', globalTree->key);
+
+        deleteTree(globalTree);
+        globalTree = NULL;
+    }
+
+    printf("\ntest 13: balance red black tree (cba)\n");
+    {
+        //arrange
+        globalTree = insert(globalTree, 'c', &valueRight);
+        globalTree = insert(globalTree, 'b', &valueRight);
+        globalTree = insert(globalTree, 'a', &valueRight);
+
+
+        //act
+
+        //assert
+        ASSERT('b', globalTree->key);
+
+        deleteTree(globalTree);
+        globalTree = NULL;
+    }
+
+    printf("\ntest 14: balance red black tree (bacd)\n");
+    {
+        //arrange
+        globalTree = insert(globalTree, 'b', &valueRight);
+        globalTree = insert(globalTree, 'a', &valueRight);
+        globalTree = insert(globalTree, 'c', &valueRight);
+        globalTree = insert(globalTree, 'd', &valueRight);
+
+
+        //act
+
+        //assert
+        ASSERT('b', globalTree->key);
+
+        deleteTree(globalTree);
+        globalTree = NULL;
+    }
+
+    printf("\ntest 15: balance red black tree (bacde)\n");
+    {
+        //arrange
+        globalTree = insert(globalTree, 'b', &valueRight);
+        globalTree = insert(globalTree, 'a', &valueRight);
+        globalTree = insert(globalTree, 'c', &valueRight);
+        globalTree = insert(globalTree, 'd', &valueRight);
+        globalTree = insert(globalTree, 'e', &valueRight);
+
+
+        //act
+
+        //assert
+        ASSERT('b', globalTree->key);
+
+        deleteTree(globalTree);
+        globalTree = NULL;
+    }
 
     return 0;
 }

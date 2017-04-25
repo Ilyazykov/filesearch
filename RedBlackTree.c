@@ -132,7 +132,7 @@ void rotateRight(Node *node) {
 
     pivot->parent = node->parent;
     if (node->parent != NULL) {
-        if (node->parent->left = node) {
+        if (node->parent->left == node) {
             node->parent->left = pivot;
         } else {
             node->parent->right = pivot;
