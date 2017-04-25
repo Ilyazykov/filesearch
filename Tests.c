@@ -270,13 +270,65 @@ int runTests() {
             ASSERT(TRUE, isWordInTree(prefixTreeRoot, "test"));
         }
 
-        printf("\n\ttest 18:\n\t");
+        printf("\n\ttest 18: is word not in PrefixTree\n\t");
         {
             //arrange
 
             //act
 
             //assert
+            ASSERT(FALSE, isWordInTree(prefixTreeRoot, "tes"));
+        }
+
+        printf("\n\ttest 19: is empty word not in PrefixTree\n\t");
+        {
+            //arrange
+
+            //act
+
+            //assert
+            ASSERT(FALSE, isWordInTree(prefixTreeRoot, ""));
+        }
+
+        printf("\n\ttest 20: add word to prefix tree\n\t");
+        {
+            //arrange
+
+            //act
+            prefixTreeRoot = addToTree(prefixTreeRoot, "tom");
+
+            //assert
+            ASSERT(TRUE, isWordInTree(prefixTreeRoot, "test"));
+        }
+
+        printf("\n\ttest 21: new word in prefix tree\n\t");
+        {
+            //arrange
+
+            //act
+
+            //assert
+            ASSERT(TRUE, isWordInTree(prefixTreeRoot, "tom"));
+        }
+
+        printf("\n\ttest 22: word with letter not in prefix tree\n\t");
+        {
+            //arrange
+
+            //act
+
+            //assert
+            ASSERT(TRUE, isWordInTree(prefixTreeRoot, "a"));
+        }
+
+        printf("\n\ttest 23: delete prefix tree\n\t");
+        {
+            //arrange
+
+            //act
+
+            //assert
+            ASSERT(NULL, prefixTreeRoot);
         }
     }
 

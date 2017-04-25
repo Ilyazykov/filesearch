@@ -7,16 +7,17 @@ int readTreeFromFile(PrefixTreeNode* prefixTree, const char* fileName) {
     char resultString[MAX_STRING_LENGHT];
 
     if (file == NULL) {
-        return -1;
+        return NULL;
     }
 
     while (fgets(resultString, sizeof(resultString), file)) {
-        addToTree(prefixTree, resultString);
+        printf("%s", resultString);
+        prefixTree = addToTree(prefixTree, resultString);
     }
 
     fclose(file);
 
-    return 0;
+    return prefixTree;
 }
 
 PrefixTreeNode* addToTree(PrefixTreeNode* prefixTree, const char* word) {

@@ -8,11 +8,12 @@
 
 int main(int argc, char* argv[]) {
     runTests();
-//    PrefixTreeNode prefixTree;
+//    PrefixTreeNode* prefixTree = NULL;
 //    char* fileName = argv[1];
 //    char word[MAX_STRING_LENGHT];
 //
-//    if (readTreeFromFile(&prefixTree, fileName) == -1) {
+//    prefixTree = readTreeFromFile(prefixTree, fileName);
+//    if (prefixTree == NULL) {
 //        printf("can't open file\n");
 //        return 0;
 //    }
@@ -27,8 +28,8 @@ int main(int argc, char* argv[]) {
 //        }
 //        scanf("%s", &word);
 //    }
-
-    return 0;
+//
+//    return 0;
 }
 
 //=======================================================
