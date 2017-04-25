@@ -105,7 +105,7 @@ int runTests() {
             //arrange
 
             //act
-            deleteTree(globalTree);
+            deleteTree(globalTree, NULL);
             globalTree = NULL;
 
             //assert
@@ -124,7 +124,7 @@ int runTests() {
             //assert
             ASSERT('b', globalTree->key);
 
-            deleteTree(globalTree);
+            deleteTree(globalTree, NULL);
             globalTree = NULL;
         }
 
@@ -140,7 +140,7 @@ int runTests() {
             //assert
             ASSERT('b', globalTree->key);
 
-            deleteTree(globalTree);
+            deleteTree(globalTree, NULL);
             globalTree = NULL;
         }
 
@@ -157,7 +157,7 @@ int runTests() {
             //assert
             ASSERT('b', globalTree->key);
 
-            deleteTree(globalTree);
+            deleteTree(globalTree, NULL);
             globalTree = NULL;
         }
 
@@ -173,7 +173,7 @@ int runTests() {
             //assert
             ASSERT('b', globalTree->key);
 
-            deleteTree(globalTree);
+            deleteTree(globalTree, NULL);
             globalTree = NULL;
         }
 
@@ -189,7 +189,7 @@ int runTests() {
             //assert
             ASSERT('b', globalTree->key);
 
-            deleteTree(globalTree);
+            deleteTree(globalTree, NULL);
             globalTree = NULL;
         }
 
@@ -205,7 +205,7 @@ int runTests() {
             //assert
             ASSERT('b', globalTree->key);
 
-            deleteTree(globalTree);
+            deleteTree(globalTree, NULL);
             globalTree = NULL;
         }
 
@@ -222,7 +222,7 @@ int runTests() {
             //assert
             ASSERT('b', globalTree->key);
 
-            deleteTree(globalTree);
+            deleteTree(globalTree, NULL);
             globalTree = NULL;
         }
 
@@ -240,7 +240,7 @@ int runTests() {
             //assert
             ASSERT('b', globalTree->key);
 
-            deleteTree(globalTree);
+            deleteTree(globalTree, NULL);
             globalTree = NULL;
         }
     }
@@ -318,7 +318,7 @@ int runTests() {
             //act
 
             //assert
-            ASSERT(TRUE, isWordInTree(prefixTreeRoot, "a"));
+            ASSERT(FALSE, isWordInTree(prefixTreeRoot, "a"));
         }
 
         printf("\n\ttest 23: delete prefix tree\n\t");
@@ -326,6 +326,7 @@ int runTests() {
             //arrange
 
             //act
+            prefixTreeRoot = deletePrefixTree(prefixTreeRoot);
 
             //assert
             ASSERT(NULL, prefixTreeRoot);

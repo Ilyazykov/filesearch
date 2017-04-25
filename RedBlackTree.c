@@ -58,18 +58,21 @@ Node* insert_(Node* currentNode, Node* prevNode, char key, void* value) {
     }
 }
 
-void deleteTree(Node* root) {
+void deleteTree(Node* root, void*(*valueDeleteFunction)(void*)) {
     if (root == NULL) {
         return;
     }
 
-    deleteTree(root->left);
+    deleteTree(root->left, valueDeleteFunction);
     root->left = NULL;
 
-    deleteTree(root->right);
+    deleteTree(root->right, valueDeleteFunction);
     root->right = NULL;
 
     root->parent = NULL;
+    if (valueDeleteFunction != NULL) {
+        valueDeleteFunction(root->value);
+    }
     free(root);
 }
 

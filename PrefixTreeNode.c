@@ -55,11 +55,15 @@ int isWordInTree(const PrefixTreeNode* prefixTree, const char* word) {
     int i = 0;
     PrefixTreeNode* iterator = prefixTree;
 
+    if (iterator == NULL) {
+        return FALSE;
+    }
+
     while (word[i] != '\0') {
+        iterator = (PrefixTreeNode*)(searchInTree(iterator->prefixTreeNodes, word[i]));
         if (iterator == NULL) {
             return FALSE;
         }
-        iterator = (PrefixTreeNode*)(searchInTree(iterator->prefixTreeNodes, word[i]));
 
         ++i;
     }
@@ -71,3 +75,11 @@ int isWordInTree(const PrefixTreeNode* prefixTree, const char* word) {
     }
 }
 
+PrefixTreeNode* deletePrefixTree(PrefixTreeNode* prefixTreeRoot) {
+    PrefixTreeNode*(*ptr)(PrefixTreeNode*) = deletePrefixTree;
+
+    deleteTree(prefixTreeRoot->prefixTreeNodes, deletePrefixTree);
+    free(prefixTreeRoot);
+
+    return NULL;
+}

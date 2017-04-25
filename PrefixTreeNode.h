@@ -17,8 +17,6 @@ int readTreeFromFile(PrefixTreeNode* prefixTree, const char* fileName);
 PrefixTreeNode* addToTree(PrefixTreeNode* prefixTree, const char* word);
 int isWordInTree(const PrefixTreeNode* prefixTree, const char* word);
 
-//================================================================
-
-PrefixTreeNode* getNextPrefixTreeNode(PrefixTreeNode* current, char key);
+PrefixTreeNode* deletePrefixTree(PrefixTreeNode* prefixTreeRoot);
 
 #endif //UNTITLED_PREFIXTREE_H

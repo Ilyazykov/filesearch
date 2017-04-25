@@ -19,7 +19,7 @@ struct Node {
 typedef struct Node Node;
 
 Node* insert(Node* root, char key, void* value);
-void deleteTree(Node* root);
+void deleteTree(Node* root, void*(*valueDeleteFunction)(void*));
 void* searchInTree(const Node* node, char key);
 
 #endif //UNTITLED_REDBLACKTREE_H
