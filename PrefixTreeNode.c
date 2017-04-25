@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 #include "PrefixTreeNode.h"
 
 int readTreeFromFile(PrefixTreeNode* prefixTree, const char* fileName) {
@@ -11,7 +9,10 @@ int readTreeFromFile(PrefixTreeNode* prefixTree, const char* fileName) {
     }
 
     while (fgets(resultString, sizeof(resultString), file)) {
-        printf("%s", resultString);
+        if (resultString[strlen(resultString) - 1] == '\n') {
+            resultString[strlen(resultString) - 1] = '\0';
+        }
+
         prefixTree = addToTree(prefixTree, resultString);
     }
 

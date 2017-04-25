@@ -1,6 +1,8 @@
 #ifndef UNTITLED_PREFIXTREE_H
 #define UNTITLED_PREFIXTREE_H
 
+#include <stdio.h>
+#include <string.h>
 #include "RedBlackTree.h"
 
 #define MAX_STRING_LENGHT 20
