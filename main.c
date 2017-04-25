@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "PrefixTreeNode.h"
+#include "PrefixTree.h"
 #include "Tests.h"
 
 #define EXIT_WORD "exit"

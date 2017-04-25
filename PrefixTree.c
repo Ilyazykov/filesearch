@@ -1,4 +1,4 @@
-#include "PrefixTreeNode.h"
+#include "PrefixTree.h"
 
 int readTreeFromFile(PrefixTreeNode* prefixTree, const char* fileName) {
     FILE *file = fopen(fileName, "r");
