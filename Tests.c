@@ -260,13 +260,14 @@ int runTests() {
             ASSERT_NOT_EQ(NULL, searchInTree(prefixTreeRoot->prefixTreeNodes, 't'));
         }
 
-        printf("\n\ttest 17:\n\t");
+        printf("\n\ttest 17: is word in PrefixTree\n\t");
         {
             //arrange
 
             //act
 
             //assert
+            ASSERT(TRUE, isWordInTree(prefixTreeRoot, "test"));
         }
 
         printf("\n\ttest 18:\n\t");

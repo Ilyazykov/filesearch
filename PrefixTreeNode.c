@@ -39,7 +39,7 @@ PrefixTreeNode* addToTree(PrefixTreeNode* prefixTree, const char* word) {
             iteratorNext->isWord = FALSE;
             iteratorNext->prefixTreeNodes = NULL;
 
-            iteratorCurr->prefixTreeNodes = insert(prefixTree->prefixTreeNodes, word[i], iteratorNext);
+            iteratorCurr->prefixTreeNodes = insert(iteratorCurr->prefixTreeNodes, word[i], iteratorNext);
         }
         iteratorCurr = iteratorNext;
 
@@ -50,7 +50,23 @@ PrefixTreeNode* addToTree(PrefixTreeNode* prefixTree, const char* word) {
     return prefixTree;
 }
 
-int isWordInTree(PrefixTreeNode prefixTree, const char* word) {
-    //TODO
+int isWordInTree(const PrefixTreeNode* prefixTree, const char* word) {
+    int i = 0;
+    PrefixTreeNode* iterator = prefixTree;
+
+    while (word[i] != '\0') {
+        if (iterator == NULL) {
+            return FALSE;
+        }
+        iterator = (PrefixTreeNode*)(searchInTree(iterator->prefixTreeNodes, word[i]));
+
+        ++i;
+    }
+
+    if (iterator->isWord) {
+        return TRUE;
+    } else {
+        return FALSE;
+    }
 }
 
