@@ -20,13 +20,6 @@ typedef struct Node Node;
 
 Node* insert(Node* root, char key, void* value);
 void deleteTree(Node* root);
-
 void* searchInTree(const Node* node, char key);
-
-Node* getGrandparent(const Node* node);
-Node* getUncle(const Node* node);
-
-void rotateLeft(Node *node);
-void rotateRight(Node *node);
 
 #endif //UNTITLED_REDBLACKTREE_H

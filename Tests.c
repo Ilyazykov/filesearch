@@ -87,7 +87,19 @@ int runTests() {
         ASSERT(valueRight, *value);
     }
 
-    printf("\ntest 6: deleting tree\n");
+    printf("\ntest 6: search unsearchable key in tree\n");
+    {
+        //arrange
+        char key = 'd';
+
+        //act
+        int* value = searchInTree(globalTree, key);
+
+        //assert
+        ASSERT(NULL, value);
+    }
+
+    printf("\ntest 8: deleting tree\n");
     {
         //arrange
 
@@ -98,6 +110,21 @@ int runTests() {
         //assert
         ASSERT(NULL, globalTree);
     }
+
+    printf("\ntest 9: balance red black tree\n");
+    {
+        //arrange
+        globalTree = insert(globalTree, 'a', &valueRight);
+        globalTree = insert(globalTree, 'b', &valueRight);
+        globalTree = insert(globalTree, 'c', &valueRight);
+
+        //act
+
+        //assert
+        ASSERT('b', globalTree->key);
+    }
+
+    deleteTree(globalTree);
 
     return 0;
 }
