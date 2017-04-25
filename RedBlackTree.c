@@ -18,11 +18,14 @@ void insertFixup_case5(Node *node);
 
 Node* insert(Node* root, char key, void* value) {
     Node* newNode = insert_(root, NULL, key, value);
-    Node* newRoot;
+    Node* newRoot = root;
 
     insertFixup_case1(newNode);
 
-    newRoot = newNode;
+    if (root == NULL) {
+        newRoot = newNode;
+    }
+
     while (newRoot->parent != NULL) {
         newRoot = newRoot->parent;
     }
