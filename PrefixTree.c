@@ -77,6 +77,10 @@ int isWordInTree(const PrefixTreeNode* prefixTree, const char* word) {
 }
 
 PrefixTreeNode* deletePrefixTree(PrefixTreeNode* prefixTreeRoot) {
+    if (prefixTreeRoot == NULL) {
+        return NULL;
+    }
+    
     PrefixTreeNode*(*ptr)(PrefixTreeNode*) = deletePrefixTree;
 
     deleteTree(prefixTreeRoot->prefixTreeNodes, deletePrefixTree);
